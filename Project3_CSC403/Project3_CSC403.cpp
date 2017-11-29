@@ -25,16 +25,35 @@ int main() {
 
 		switch (int1) {
 		case 0:
-			cout << "add";
+			cout << "add ";
 			break;
 		case 1:
-			cout << "sub";
+			cout << "sub ";
 			break;
 		case 2:
-			cout << "jmp";
+			cout << "jmp ";
+			int1 = int1 & 0x0f;
+			int2 = int1 + int2;
+			cout << int2;
+			//int2 = int2 & 0xf;
 			break;
 		case 3:
-			cout << "je";
+			cout << "je ";
+			break;
+		case 4:
+			cout << "jne ";
+			break;
+		case 5:
+			cout << "jl ";
+			break;
+		case 6:
+			cout << "jg ";
+			break;
+		case 7:
+			cout << "cmp ";
+			int1 = int1 & 0x0f;
+			int2 = int1 + int2;
+			cout << int2;
 			break;
 		}
 
