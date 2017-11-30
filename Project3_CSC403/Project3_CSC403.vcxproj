@@ -113,7 +113,7 @@
     <ClCompile Include="Project3_CSC403.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="inputFile.txt" />
+    <Text Include="inFile.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
