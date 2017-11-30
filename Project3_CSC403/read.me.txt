@@ -4,3 +4,7 @@
 4. No special steps should be needed to compile project
 5. No outstanding bugs
 6. Summary:
+	1. Pairs of characters are processed until the end of the file is reached
+	2. The characters are converted to integers, then each integer is manipulated
+		to pull out the desired values for each of the 16 bits.
+	3. Results are then printed to the console.
