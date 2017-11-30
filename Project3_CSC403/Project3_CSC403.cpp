@@ -98,7 +98,8 @@ int main() {
 	cin >> fileName; // Read the filename
 	ifstream inFile(fileName);
 	int constant;
-	while (ch1 = inFile.get()) {		
+	while (!inFile.eof()) {		
+		ch1 = inFile.get();
 		ch2 = inFile.get();
 		int1 = ch1;
 		int2 = ch2;		
@@ -107,12 +108,16 @@ int main() {
 		switch (opcode) {
 		case 0:
 			cout << "add ";
+			cout << getFirstRegister();
+			cout << getSecondValue() << endl;
 			break;
 		case 1:
 			cout << "sub ";
+			cout << getFirstRegister();
+			cout << getSecondValue() << endl;
 			break;
 		case 2:
-			cout << "jmp  ";
+			cout << "jmp ";
 			cout << getConstant() << endl;
 			break;
 		case 3:
@@ -120,7 +125,7 @@ int main() {
 			cout << getConstant() << endl;
 			break;
 		case 4:
-			cout << "jne  ";
+			cout << "jne ";
 			cout << getConstant() << endl;
 			break;
 		case 5:
@@ -173,7 +178,6 @@ int main() {
 		case 15:
 			cout << "nop " << endl;
 			break;
-
 		}
 	}
 	return 0;
