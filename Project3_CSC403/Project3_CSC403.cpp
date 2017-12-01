@@ -104,7 +104,8 @@ int main() {
 	ch1 = inFile.get();
 	ch2 = inFile.get();
 		//Read until the end of the file is reached
-	while (inFile) {		
+	while (inFile) {	
+			//Convert character to binary
 		int1 = ch1;
 		int2 = ch2;		
 		int opcode = int1 & 0xf0;
