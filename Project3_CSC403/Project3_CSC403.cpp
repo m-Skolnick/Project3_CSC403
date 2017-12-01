@@ -10,12 +10,14 @@ using namespace std;
 char ch1, ch2;
 int int1, int2;
 
+	//Extract the constant from bits 4-15 
 int getConstant() {
 	int constant = int1 & 0x0f;
 	constant = (constant << 8);
 	constant = constant + int2;
 	return constant;
 }
+	//Return the correct register from bits 4-5
 string getFirstRegister() {
 	string reg = "register";
 	int rValue = int1 & 0x0C;
@@ -36,6 +38,7 @@ string getFirstRegister() {
 	}
 	return reg;
 }
+	//Based on the values of bits 6-7, return the correct second operand
 string getSecondValue() {
 	string returnVal = "register";
 	int secondOperand = int1 & 0x03;
@@ -97,14 +100,16 @@ int main() {
 	cout << ">>> ";
 	cin >> fileName; // Read the filename
 	ifstream inFile(fileName);
-	int constant;
-	while (!inFile.eof()) {		
-		ch1 = inFile.get();
-		ch2 = inFile.get();
+		//Seed read the first set of characters
+	ch1 = inFile.get();
+	ch2 = inFile.get();
+		//Read until the end of the file is reached
+	while (inFile) {		
 		int1 = ch1;
 		int2 = ch2;		
 		int opcode = int1 & 0xf0;
-		opcode = (opcode >> 4);		
+		opcode = (opcode >> 4);	
+			//Process the data based on the opcode
 		switch (opcode) {
 		case 0:
 			cout << "add ";
@@ -179,6 +184,9 @@ int main() {
 			cout << "nop " << endl;
 			break;
 		}
+			//Read in the next set of characters
+		ch1 = inFile.get();
+		ch2 = inFile.get();
 	}
 	return 0;
 }
